@@ -13,7 +13,8 @@ syn match  todoinprogress  /INPROGRESS/
 syn match  todotodo        /TODO/
 syn match  todosomewhat    /SOMEWHAT/
 syn match  todonote        /NOTE/
-syn match  tododate        /\(Mon\|Tue\|Wed\|Thu\|Fri\|Sat\|Sun\)\s\(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec\) \d\{2} \d\{2}:\d\{2}:\d\{2} CEST \d\{4}/
+syn match  tododate        /\(Mon\|Tue\|Wed\|Thu\|Fri\|Sat\|Sun\)\s\(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec\) \d\{2} /
+syn match  todotime        /\d\{2}:\d\{2}:\d\{2} CEST \d\{4}/
 syn region done            start=/\*\*DONE/ end=/\*\*/
 syn region inprogress      start=/\*\*INPROGRESS/ end=/\*\*/
 syn region matttodo        start=/\*\*TODO/ end=/\*\*/
@@ -46,7 +47,7 @@ if !exists("did_todo_syntax_inits")
     hi default tMajor ctermfg=196
 
   hi link todonote tTodonote
-    hi default tTodonote ctermfg=196
+    hi default tTodonote ctermfg=197 cterm=bold
 
   hi link minorpoint tMinor
    hi default tMinor ctermfg=29 cterm=bold
@@ -54,9 +55,13 @@ if !exists("did_todo_syntax_inits")
   hi link minipoint tMini
     hi default tMini ctermfg=154 cterm=bold
 
-  hi link tododate tdate
-  hi link todomodified tdate
-  hi default tdate ctermfg=244 cterm=bold
+  hi link tododate tDate
+  hi link todomodified tDate
+  hi default tDate ctermfg=196 ctermbg=233 cterm=bold
+
+  hi link todotime tTime
+  hi link todomodified tTime
+  hi default tTime ctermfg=225 ctermbg=233 cterm=bold
 endif
 
 let b:current_syntax="todo"
