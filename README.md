@@ -4,6 +4,6 @@
 
 # SYNOPSIS
 
-  :set ft=TODO
+  :set ft=todo
 
-![todo screenshot](http://github.com/trapd00r/vim-syntax-todo/raw/master/shot.png "todo screenshot")
+![todo screenshot](http://perl.japh.se/devel/vim-syntax-todo/todo.png)
