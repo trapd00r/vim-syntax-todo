@@ -20,8 +20,8 @@ syn region inprogress      start=/\*\*INPROGRESS/ end=/\*\*/
 syn region matttodo        start=/\*\*TODO/ end=/\*\*/
 syn region majorpoint      start=/==>/ end=/-->/me=s-3 contains=ALL
 syn region comment         start=/#/ end=/\n/
-syn match  minorpoint      /'-->/
-syn match  minipoint       /'--->/
+syn match  minorpoint      /--/
+syn match  minipoint       /---/
 syn region todomodified    start=/Modified:/ end=/$/
 
 if !exists("did_todo_syntax_inits")
