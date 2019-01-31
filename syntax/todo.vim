@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language: TODO
-" Author:   Magnus Woldrich <trapd00r@trapd00r.se>
+" Author:   Magnus Woldrich <m@japh.se>
 
 if version < 600
 	syntax clear
@@ -22,6 +22,8 @@ syn region majorpoint      start=/==>/ end=/-->/me=s-3 contains=ALL
 syn region comment         start=/#/ end=/\n/
 syn match  minorpoint      /--/
 syn match  minipoint       /---/
+syn match  todobullet      /·/
+syntax match todoURL       /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn region todomodified    start=/Modified:/ end=/$/
 
 if !exists("did_todo_syntax_inits")
@@ -44,7 +46,7 @@ if !exists("did_todo_syntax_inits")
     hi default tTodo ctermfg=160 ctermbg=233 cterm=bold
 
   hi link majorpoint tMajor
-    hi default tMajor ctermfg=196
+    hi default tMajor ctermfg=143
 
   hi link todonote tTodonote
     hi default tTodonote ctermfg=197 cterm=bold
@@ -62,6 +64,12 @@ if !exists("did_todo_syntax_inits")
   hi link todotime tTime
   hi link todomodified tTime
   hi default tTime ctermfg=238 cterm=bold
+
+  hi Normal ctermfg=255
+
+  hi todoURL ctermfg=39
+
+  hi todobullet ctermfg=160 cterm=bold
 endif
 
 let b:current_syntax="todo"
