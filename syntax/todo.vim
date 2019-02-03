@@ -28,12 +28,13 @@ syntax match todoURL       /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-
 syn region todomodified    start=/Modified:/ end=/$/
 
 
-"syn region todoLevel1 start=/\v^[a-zA-z](?=(DONE))/ skip=/DONE/ end=/\n/
-"hi todoLevel1 cterm=bold
-
 " dim finished tasks
-syn match todoLevel1 /.*\zeDONE/ contains=tododone
+" %3>l  = match after 3rd line
+syn match todoLevel1 /%3>l.*\zeDONE/ contains=tododone
 hi todoLevel1 ctermfg=240 cterm=italicbold
+
+syn match todoLevel2 /%3>l.*\zeNOTE/ contains=todonote
+hi todoLevel2  cterm=bold
 
 
 sy region dash1 matchgroup=dash1 start=/\---/ end=/\v\n/ contains=dash2 keepend
