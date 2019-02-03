@@ -1,6 +1,7 @@
-" Vim syntax file
+"     What: todo.vim
 " Language: TODO
-" Author:   Magnus Woldrich <m@japh.se>
+"   Author: Magnus Woldrich <m@japh.se>
+"     Date: 2019-02-03 09:52:40
 
 if version < 600
 	syntax clear
@@ -25,6 +26,23 @@ syn match  minipoint       /---/
 syn match  todobullet      /·/
 syntax match todoURL       /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn region todomodified    start=/Modified:/ end=/$/
+
+
+"syn region todoLevel1 start=/\v^[a-zA-z](?=(DONE))/ skip=/DONE/ end=/\n/
+"hi todoLevel1 cterm=bold
+
+" dim finished tasks
+syn match todoLevel1 /.*\zeDONE/ contains=tododone
+hi todoLevel1 ctermfg=240 cterm=italicbold
+
+
+sy region dash1 matchgroup=dash1 start=/\---/ end=/\v\n/ contains=dash2 keepend
+sy region dash2 matchgroup=dash2 start=/\---/ end=/\v\n/ contains=dash3 keepend
+sy region dash3 matchgroup=dash3 start=/\---/ end=/\v\n/ contains=dash1 contained keepend
+hi dash1 ctermfg=240
+hi dash2 ctermfg=244
+hi dash3 ctermfg=248
+
 
 if !exists("did_todo_syntax_inits")
   let did_todo_syntax_inits = 1
