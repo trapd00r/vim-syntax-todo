@@ -32,7 +32,7 @@ syn region todomodified    start=/Modified:/ end=/$/
 " dim finished tasks
 " %3>l  = match after 3rd line
 syn match todoLevel1 /\v\s*·?\s*\zs.*\zeDONE/ contains=tododone
-hi todoLevel1 ctermfg=240 cterm=italicbold
+hi todoLevel1 ctermfg=238 cterm=italicbold
 
 syn match todoLevel2 /%3>l.*\zeNOTE/ contains=todonote
 hi todoLevel2  cterm=bold
